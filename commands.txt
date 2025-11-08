@@ -1,0 +1,75 @@
+ 1  sudo apt update
+    2  docker --version
+    3  sudo apt upgrade -y
+    4  sudo apt install -y docker.io
+    5  sudo systemctl enable docker
+    6  sudo systemctl start docker
+    7  docker --version
+    8  sudo usermod -aG docker ubuntu
+    9  docker ps
+   10  sudo docke rps
+   11  sudo docker ps
+   12  sudo apt install -y docker-compose
+   13  mkdir ci-cd-project/
+   14  ls
+   15  cd ci-cd-project
+   16  mkdir frontend backend
+   17  ls
+   18  cd backend
+   19  ls
+   20  vim app.py
+   21  vim requirements.txt
+   22  vim Dockerfile
+   23  sudo docker build -t ci-cd-backend .
+   24  sudo docker images
+   25  sudo docker run -p 5000:5000 ci-cd-backend
+   26  cd ..
+   27  ls
+   28  cd frontend
+   29  ls
+   30  vim Dockerfile
+   31  sudo docker build -t ci-cd-frontend .
+   32  sudo docker images
+   33  sudo docker run -d -p 8080:80 ci-cd-frontend
+   34  sudo docker ps
+   35  sudo docker run -d -p 8080:80 ci-cd-frontend
+   36  sudo docker stop cb1a57e256a4
+   37  sudo docker run -d -p 8080:80 ci-cd-frontend
+   38  sudo docker ps
+   39  sudo docker network create ci-cd-network
+   40  sudo docker network connect ci-cd-network clever_fermi
+   41  sudo docker network connect ci-cd-network backend-container
+   42  cd ..
+   43  docker ps
+   44  sudo docker ps
+   45  sudo docker images
+   46  sudo docker run -d --name ci-cd-backend -p 5000:5000 ci-cd-backend
+   47  sudo docker ps
+   48  sudo docker network connect ci-cd-network ci-cd-backend
+   49  ls
+   50  cd  frontend
+   51  sudo docker exec -it clever_fermi /bin/sh
+   52  ls
+   53  cd ..
+   54  ls
+   55  cd backend
+   56  ls
+   57  ping ci-cd-backend
+   58  sudo docker network create ci-cd-network
+   59  sudo docker ps
+   60  cd ..
+   61  sudo docker network connect ci-cd-network f96a11fab277
+   62  sudo docker network inspect ci-cd-network
+   63  ls
+   64  cd frontend
+   65  sudo docker exec -it clever_fermi /bin/sh
+   66  cd ..
+   67  git init
+   68  git add .
+   69  git commit -m "Initial commit"
+   70  git branch -M main
+   71  git remote add origin https://github.com/sandeeprlb/8th_nov2025_docker-handson.git
+   72  git push -u origin main
+   73  mkdir -p .github/workflows
+   74  nano .github/workflows/ci-cd.yml
+   75  vim ci-cd.yml
